@@ -5,8 +5,16 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 
+import Users from '@/components/comLister/users';
+import UserAdd from '@/components/comLister/users/UserAdd';
+import UserList from '@/components/comLister/users/UserList';
+
 import App from './App';
 import router from './router';
+
+Vue.component('users', Users);
+Vue.component('user-add', UserAdd);
+Vue.component('user-list', UserList);
 
 Vue.use(Vuetify, {
   theme: {

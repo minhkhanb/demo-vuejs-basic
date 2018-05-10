@@ -1,6 +1,5 @@
 import ComponentList from '@/components/comLister/ComponentList';
-import Users from '@/components/comLister/Users';
-import UserAdd from '@/components/comLister/UserAdd';
+import ComponentDemo from '@/components/comLister/ComponentDemo';
 
 export default [
   {
@@ -9,13 +8,8 @@ export default [
     name: 'components.list',
   },
   {
-    path: '/users',
-    component: Users,
-    name: 'components.users',
-  },
-  {
-    path: 'userAdd',
-    component: UserAdd,
-    name: 'components.add',
+    path: 'demo/:comName',
+    component: ComponentDemo,
+    name: 'components.demo',
   },
 ];

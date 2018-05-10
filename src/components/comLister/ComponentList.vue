@@ -5,7 +5,7 @@
       <p v-for="(component, i) in components" :key="i">
         <strong>#{{ i+1 }}</strong>
         <span>{{ component.name }}</span>
-        <router-link :to="'/components-list/' + component.name">See demo</router-link>
+        <router-link :to="'/components-list/demo/' + component.name">See demo</router-link>
       </p>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
       childrents: [
         {
           type: 'c',
-          name: 'users',
+          name: 'Users',
         },
       ],
     };
