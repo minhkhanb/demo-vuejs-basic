@@ -1,11 +1,10 @@
 <template>
   <div>
     <user-add :user-added="userAdded1"></user-add>
-    <user-list :remove-user="removeUser" :users="users" ></user-list>
+    <!--<user-list :remove-user="removeUser" :users="users" ></user-list>-->
   </div>
 </template>
 <script>
-
 
 export default [
   {
@@ -22,6 +21,7 @@ export default [
     methods: {
       userAdded1(newMember) {
         this.users.push(newMember);
+        console.log(this.users);
       },
 
       removeUser(index) {

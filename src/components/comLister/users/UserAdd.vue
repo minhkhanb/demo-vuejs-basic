@@ -5,16 +5,7 @@
       <div class="form-group">
         <label class="v-label pdr" for="first-name">Name:</label>
         <input class="v-input" name="first-name" id="first-name"
-               v-model="form.firstName"/>
-      </div>
-      <div class="form-group">
-        <label class="v-label" >Birth Year</label>
-        <select class="v-input" name="datePicker" id="datePicker"
-                v-model="form.datePicker">
-          <option v-for="(value, index) in yearsBD" :value="value" :key = index>
-            {{value}}
-          </option>
-        </select>
+               v-model="form.name"/>
       </div>
       <div>
         <button type="submit" class="btn primary" @click="submit">Add User</button>
@@ -28,30 +19,13 @@ export default {
   props: {
     userAdded: Function,
   },
-  computed: {
-    yearsBD() {
-      const arr = [];
-      const d = new Date();
-      const yearPresent = d.getFullYear();
-      for (let i = 1950; i < yearPresent; i++) {
-        arr.push(i);
-      }
-      return arr;
-    },
-  },
 
   methods: {
     submit() {
       const newMember = {
-        firstName: String,
-        datePicker: String,
-        age: String,
+        name: String,
       };
-      const d = new Date();
-      const yearPresent = d.getFullYear();
-      newMember.firstName = this.form.firstName;
-      newMember.datePicker = this.form.datePicker;
-      newMember.age = yearPresent - this.form.datePicker;
+      newMember.name = this.form.name;
 
       this.userAdded(newMember);
     },
@@ -61,8 +35,7 @@ export default {
     return {
       lastUser: null,
       form: {
-        firstName: null,
-        datePicker: null,
+        name: null,
       },
     };
   },
