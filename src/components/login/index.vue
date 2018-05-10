@@ -1,45 +1,40 @@
 <template>
-  <v-content>
-    <v-container fluid fill-height>
-      <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md4>
-          <v-card class="elevation-12">
-            <v-toolbar dark color="primary">
-              <v-toolbar-title>Login form</v-toolbar-title>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-            <v-card-text>
-              <v-form>
-                <v-text-field prepend-icon="person"
-                              v-model="login.email"
-                              name="login"
-                              label="Login"
-                              type="text"
-                              autofocus></v-text-field>
-                <v-text-field id="password"
-                              v-model="login.password"
-                              prepend-icon="lock"
-                              name="password"
-                              label="Password"
-                              type="password"></v-text-field>
-              </v-form>
-            </v-card-text>
+  <div class="content">
+    <div class="container fluid fill-height">
+      <div class="layout align-center justify-center">
+        <div class="flex xs12 sm8 md4">
+          <div class="card elevation-12">
+            <div class="toolbar primary" dark>
+              <h1>Login form</h1>
+            </div>
+            <div>
+              <form class="form-login">
+                <div class="form-group">
+                  <label class="v-label pdr">Login:</label>
+                  <input type="text" v-model="login.email" class="v-input" autofocus/>
+                </div>
+                <div class="form-group">
+                  <label class="v-label">Password:</label>
+                  <input type="password" v-model="login.password" class="v-input"/>
+                </div>
+              </form>
+            </div>
             <div class="loading-overlay" v-if="loading">
               <v-progress-circular indeterminate
                                    color="primary"
                                    md-mode="indeterminate"
                                    :md-stroke="2"></v-progress-circular>
             </div>
-            <v-card-actions>
-              <v-spacer>
-              </v-spacer>
-              <v-btn color="primary" @click="auth">Login</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-content>
+            <div class="">
+              <button class="btn btn-login primary form-group" @click="auth">
+                <span class="">Login</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -66,5 +61,33 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+  $white: #ffffff;
+  h1 {
+    color: $white;
+  }
+  .content {
+    .form-login {
+      text-align: left;
+    }
+    .form-group {
+      margin: 2rem;
+    }
+    .v-label {
+      font-weight: 700;
+    }
+    .v-input {
+      border: 1px solid #ff000a;
+      width: 75%;
+    }
+    .btn {
+      border-radius: 5%;
+      &.btn-login {
+        color: $white;
+      }
+    }
+    .pdr {
+      padding-right: 2rem;
+    }
+  }
 
 </style>
