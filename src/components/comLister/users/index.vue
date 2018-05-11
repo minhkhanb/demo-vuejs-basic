@@ -5,11 +5,15 @@
   </div>
 </template>
 <script>
+// import UserAdd from './UserAdd';
+// import UserList from './UserList';
 
 export default {
   name: 'users',
-  props: {
-  },
+  // components: {
+  //   UserAdd,
+  //   UserList,
+  // },
   data() {
     return {
       users: [],

@@ -9,7 +9,6 @@ import ComListerRoutes from '@/components/comLister/comLister.routes';
 Vue.use(Router);
 
 export default new Router({
-  base: __dirname,
   routes: [
     {
       path: '/',

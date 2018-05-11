@@ -14,7 +14,7 @@
             <td>{{ item.name }}</td>
             <td>
               <p>
-                <a style="text-decoration: underline;" @click="removeElement(index)">remove</a>
+                <a class="link-text" @click="removeElement(index)">remove</a>
               </p>
             </td>
           </tr>
@@ -25,6 +25,7 @@
 </template>
 <script>
 export default {
+  name: 'user-list',
   props: ['users', 'removeUser'],
   methods: {
     removeElement(index) {
@@ -51,6 +52,9 @@ export default {
         border: 1px solid black;
         padding: 0.5rem;
       }
+    }
+    .link-text {
+      text-decoration: underline;
     }
   }
 </style>
