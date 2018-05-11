@@ -40,8 +40,15 @@ export default {
 </script>
 <style scoped lang="scss">
   $white: #ffffff;
+  $green: #82B1FF;
+  .section-user-add {
+    border: 2px solid $green;
+  }
   h1 {
     color: $white;
+  }
+  h3 {
+    margin-top: 1rem;
   }
   .content {
   .form-login {

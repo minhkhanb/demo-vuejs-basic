@@ -1,8 +1,12 @@
 <template>
   <div>
     <div class="pa-5">
+      <h1>{{componentName}}</h1>
       <transition name="fade" :duration="600">
         <users v-if="componentName === 'Users' " />
+      </transition>
+      <transition name="fade" :duration="600">
+        <test v-if="componentName === 'Test' " />
       </transition>
     </div>
     <div>
@@ -39,4 +43,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  h1 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #82B1FF;
+    border-bottom-style: dotted;
+  }
 </style>

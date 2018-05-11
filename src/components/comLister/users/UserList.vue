@@ -35,8 +35,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+  $green: #82B1FF;
   .section-user-list {
+    border: 2px solid $green;
     margin-top: 4rem;
+    h3 {
+      margin-top: 1rem;
+    }
     table {
       margin: 2% 32%;
       width: 400px;

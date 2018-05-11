@@ -23,6 +23,10 @@ export default {
           type: 'c',
           name: 'Users',
         },
+        {
+          type: 'c',
+          name: 'Test',
+        },
       ],
     };
   },
