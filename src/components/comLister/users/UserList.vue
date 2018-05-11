@@ -7,17 +7,14 @@
           <tr>
             <th>No.</th>
             <th>Name</th>
-            <th>Age</th>
             <th>Action</th>
           </tr>
           <tr v-for="(item, index) in users" :key="index">
             <td>{{ index + 1 }}</td>
-            <td>{{ item.firstName }}</td>
-            <td>{{ item.age }}</td>
+            <td>{{ item.name }}</td>
             <td>
               <p>
-                <span type="but"
-                      class="glyphicon glyphicon-trash" @click="removeElement(index)"></span>
+                <a style="text-decoration: underline" @click="removeElement(index)">remove</a>
               </p>
             </td>
           </tr>
@@ -28,7 +25,7 @@
 </template>
 <script>
 export default {
-  props: ['users'],
+  props: ['users', 'removeUser'],
   data: () => ({
     search: null,
     searched: [],
