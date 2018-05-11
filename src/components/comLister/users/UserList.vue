@@ -14,7 +14,7 @@
             <td>{{ item.name }}</td>
             <td>
               <p>
-                <a style="text-decoration: underline" @click="removeElement(index)">remove</a>
+                <a style="text-decoration: underline;" @click="removeElement(index)">remove</a>
               </p>
             </td>
           </tr>
@@ -26,21 +26,31 @@
 <script>
 export default {
   props: ['users', 'removeUser'],
-  data: () => ({
-    search: null,
-    searched: [],
-  }),
-  computed: {
-  },
   methods: {
     removeElement(index) {
       this.removeUser(index);
     },
   },
-  created() {
-    this.searched = this.users;
-  },
 };
 </script>
 <style scoped lang="scss">
+  .section-user-list {
+    margin-top: 4rem;
+    table {
+      margin: 2% 32%;
+      width: 400px;
+
+      border: 1px solid black;
+      tr {
+        border-bottom: 1px solid black;
+      }
+      th {
+        border: 1px solid black;
+      }
+      td {
+        border: 1px solid black;
+        padding: 0.5rem;
+      }
+    }
+  }
 </style>

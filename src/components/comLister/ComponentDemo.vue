@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>{{ componentName }}</p>
     <div class="pa-5">
       <transition name="fade" :duration="600">
         <users v-if="componentName === 'Users' " />

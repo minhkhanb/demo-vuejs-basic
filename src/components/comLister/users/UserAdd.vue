@@ -3,9 +3,8 @@
     <h3>Add New User</h3>
     <form class="md-layout" >
       <div class="form-group">
-        <label class="v-label pdr" for="first-name">Name:</label>
-        <input class="v-input" name="first-name" id="first-name"
-               v-model="form.name"/>
+        <label class="v-label pdr">Name:</label>
+        <input class="v-input" v-model="form.name" autofocus/>
       </div>
       <div>
         <button type="submit" class="btn primary" @click="submit">Add User</button>
@@ -16,9 +15,7 @@
 <script>
 export default {
   name: 'user-add',
-  props: {
-    userAdded: Function,
-  },
+  props: ['userAdded'],
 
   methods: {
     submit() {
@@ -57,7 +54,7 @@ export default {
     font-weight: 700;
   }
   .v-input {
-    border: 1px solid #ff000a;
+    border: 1px solid blue;
     width: 75%;
   }
   .btn {

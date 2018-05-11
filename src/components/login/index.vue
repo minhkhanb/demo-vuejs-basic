@@ -76,7 +76,7 @@ export default {
       font-weight: 700;
     }
     .v-input {
-      border: 1px solid #ff000a;
+      border: 1px solid blue;
       width: 75%;
     }
     .btn {
