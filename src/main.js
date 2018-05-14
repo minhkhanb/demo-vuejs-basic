@@ -14,6 +14,8 @@ import Test from '@/components/shared/Test';
 import App from './App';
 import router from './router';
 
+require('./directives/directives.js');
+
 Vue.component('users', Users);
 Vue.component('user-add', UserAdd);
 Vue.component('user-list', UserList);

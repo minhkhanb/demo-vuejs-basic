@@ -11,7 +11,8 @@
               <form class="form-login">
                 <div class="form-group">
                   <label class="v-label pdr">Login:</label>
-                  <input type="text" v-model="login.email" class="v-input" autofocus/>
+                  <!--<input type="text" v-model="login.email" class="v-input" autofocus/>-->
+                  <input type="text" v-model="login.email" class="v-input" v-focus/>
                 </div>
                 <div class="form-group">
                   <label class="v-label">Password:</label>
