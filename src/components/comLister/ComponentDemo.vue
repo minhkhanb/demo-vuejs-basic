@@ -2,12 +2,8 @@
   <div>
     <div class="pa-5">
       <h1>{{componentName}}</h1>
-      <transition name="fade" :duration="600">
-        <users v-if="componentName === 'Users' " />
-      </transition>
-      <transition name="fade" :duration="600">
-        <test v-if="componentName === 'Test' " />
-      </transition>
+      <users v-if="componentName === 'Users' " />
+      <test v-if="componentName === 'Test' " />
     </div>
     <div>
       <router-link to="/components-list">Go back</router-link>

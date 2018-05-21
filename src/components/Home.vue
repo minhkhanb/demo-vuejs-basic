@@ -2,7 +2,6 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <img src="@/assets/logo.png">
-    <h2></h2>
   </div>
 </template>
 
@@ -18,7 +17,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
   h1, h2 {
     font-weight: normal;
   }

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div>
+      <h1>Current List Users</h1>
+    </div>
     <user-add :user-added="userAdded1"></user-add>
     <user-list :remove-user="removeUser" :users="users" ></user-list>
   </div>

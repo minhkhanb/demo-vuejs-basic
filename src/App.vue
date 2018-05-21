@@ -7,7 +7,7 @@
     <v-toolbar fixed app class="secondary px-3" dark>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn flat to="/">Home</v-btn>
+        <v-btn flat :to="{name: 'Home'}">Home</v-btn>
         <v-btn flat to="/login">Login</v-btn>
         <v-btn flat to="/components-list">Components</v-btn>
       </v-toolbar-items>
