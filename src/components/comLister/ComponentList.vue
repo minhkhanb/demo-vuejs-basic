@@ -27,6 +27,10 @@ export default {
           type: 'c',
           name: 'Test',
         },
+        {
+          type: 'c',
+          name: 'Loading',
+        },
       ],
     };
   },

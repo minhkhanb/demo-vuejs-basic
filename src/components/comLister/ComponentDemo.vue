@@ -4,6 +4,7 @@
       <h1>{{componentName}}</h1>
       <users v-if="componentName === 'Users' " />
       <test v-if="componentName === 'Test' " />
+      <loading v-if="componentName === 'Loading' " />
     </div>
     <div>
       <router-link to="/components-list">Go back</router-link>
@@ -12,9 +13,13 @@
 </template>
 
 <script>
+import Loading from '../shared/loading';
 
 export default {
   name: 'component-demo',
+  components: {
+    Loading,
+  },
   data() {
     return {
       componentName: '',

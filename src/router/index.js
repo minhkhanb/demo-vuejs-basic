@@ -5,6 +5,7 @@ import Login from '@/components/login';
 
 import ComListerRouteView from '@/components/comLister/ComListerRouteView';
 import ComListerRoutes from '@/components/comLister/comLister.routes';
+import Popup from '@/components/popup/popup';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/components-list',
       component: ComListerRouteView,
       children: ComListerRoutes,
+    },
+    {
+      path: '/popup',
+      name: 'Popup',
+      component: Popup,
     },
   ],
 });
