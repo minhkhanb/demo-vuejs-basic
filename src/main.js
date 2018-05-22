@@ -13,6 +13,8 @@ import Test from '@/components/shared/Test';
 
 import App from './App';
 import router from './router';
+import store from './store';
+
 
 require('./directives/directives.js');
 
@@ -38,6 +40,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   render: h => h(App),
 });

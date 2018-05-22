@@ -1,40 +1,34 @@
 <template>
   <div>
-    <v-btn @click="openPopup">Dialog</v-btn>
-    <v-btn></v-btn>
-    <add-new-user v-if="isOpen" :closePopup="closePopup">
-    </add-new-user>
-    <loading v-if="isLoading"></loading>
+    <div>
+      <h1>Sample store</h1>
+      <strong> Result: {{count}}</strong>
+
+      <div>
+        <btn text = 'Increment' />
+        <btn text = 'Decrement' />
+      </div>
+      <add-new-user />
+    </div>
   </div>
 </template>
 <script>
 import Loading from '@/components/shared/loading';
-import Login from '@/components/login';
 import AddNewUser from './addNewUser';
+import Btn from './btn';
 
 export default {
   name: 'popup',
   components: {
     AddNewUser,
     Loading,
-    Login,
+    Btn,
   },
   methods: {
-    openPopup() {
-      this.isLoading = true;
-      setTimeout(() => {
-        this.isLoading = false;
-        this.isOpen = true;
-      }, 3000);
-    },
-    closePopup() {
-      this.isOpen = false;
-    },
   },
   data() {
     return {
-      isLoading: false,
-      isOpen: false,
+      text: '',
     };
   },
 };

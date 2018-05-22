@@ -1,25 +1,38 @@
 <template>
   <div>
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <slot name="addNewUser">
-            <h1> Add New User</h1>
-            <div>Sample popup</div>
-            <v-btn @click="setOpen">Close</v-btn>
-          </slot>
+    <v-btn @click="changeStatus" >Add New User</v-btn>
+    <div v-if="status === true">
+      <div class="modal-mask">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+            <slot name="addNewUser">
+              <h1> Add New User</h1>
+              <div>Sample popup</div>
+              <v-btn>Close</v-btn>
+            </slot>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import store from '../../store';
+import Btn from './btn';
+
 export default {
   name: 'add-new-user',
-  props: ['closePopup'],
+  components: {
+    Btn,
+  },
+  computed: {
+    status() {
+      return store.state.status;
+    },
+  },
   methods: {
-    setOpen() {
-      this.closePopup();
+    changeStatus() {
+      store.commit('changeStatus');
     },
   },
   data() {
