@@ -7,6 +7,7 @@
         <v-btn flat :to="{name: 'Login'}">Login</v-btn>
         <v-btn flat :to="{name: 'components.list'}">Components</v-btn>
         <v-btn flat :to="{name: 'Popup'}">Popup</v-btn>
+        <v-btn flat :to="{name: 'Animation'}">Animation</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>

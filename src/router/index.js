@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
 import Login from '@/components/login';
+import Animation from '@/components/animations/Animations';
 
 import ComListerRouteView from '@/components/comLister/ComListerRouteView';
 import ComListerRoutes from '@/components/comLister/comLister.routes';
@@ -30,6 +31,11 @@ export default new Router({
       path: '/popup',
       name: 'Popup',
       component: Popup,
+    },
+    {
+      path: '/animation',
+      name: 'Animation',
+      component: Animation,
     },
   ],
 });
