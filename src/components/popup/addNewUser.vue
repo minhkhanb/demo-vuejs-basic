@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-btn @click="changeStatus" >Add New User</v-btn>
-    <div v-if="status === true">
+    <v-btn @click="Boolean(!isOpen)" :disabled="checkStatus" >Add New User</v-btn>
+    <div v-show="isOpen === true">
       <div class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container">
@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import store from '../../store';
+import { mapGetters, mapMutations } from 'vuex';
 import Btn from './btn';
 
 export default {
@@ -26,17 +26,18 @@ export default {
     Btn,
   },
   computed: {
-    status() {
-      return store.state.status;
-    },
+    ...mapGetters({
+      checkStatus: 'status',
+    }),
   },
   methods: {
-    changeStatus() {
-      store.commit('changeStatus');
-    },
+    ...mapMutations({
+      changeStatus: 'changeStatus',
+    }),
   },
   data() {
     return {
+      isOpen: false,
     };
   },
 };

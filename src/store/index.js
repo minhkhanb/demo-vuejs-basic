@@ -8,13 +8,18 @@ const store = new Vuex.Store({
     status: false,
   },
   getters: {
-    count() {
-      return store.state.count;
+    counter(count) {
+      return count;
     },
-    status() {
-      return store.state.count;
+    count({ count }) {
+      return count;
+    },
+    status({ status }) {
+      return status;
     },
   },
+  // actions: {
+  // },
   mutations: {
     increment(state) {
       state.count += 1;
@@ -22,10 +27,13 @@ const store = new Vuex.Store({
     decrement(state) {
       state.count -= 1;
     },
-    changeStatus(state) {
-      state.status = Boolean(!status);
+    changeStatus(state, payload) {
+      state.status = Boolean(payload);
+      // eslint-disable-next-line
+      console.log(state.status);
     },
   },
+
 });
 
 export default store;

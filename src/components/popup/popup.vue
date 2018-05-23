@@ -8,11 +8,14 @@
         <btn text = 'Increment' />
         <btn text = 'Decrement' />
       </div>
+      <v-btn @click="changeStatus(!checkStatus)" >Loading</v-btn>
+      <loading v-if="checkStatus" />
       <add-new-user />
     </div>
   </div>
 </template>
 <script>
+import { mapGetters, mapMutations } from 'vuex';
 import Loading from '@/components/shared/loading';
 import AddNewUser from './addNewUser';
 import Btn from './btn';
@@ -24,7 +27,16 @@ export default {
     Loading,
     Btn,
   },
+  computed: {
+    ...mapGetters({
+      count: 'count',
+      checkStatus: 'status',
+    }),
+  },
   methods: {
+    ...mapMutations({
+      changeStatus: 'changeStatus',
+    }),
   },
   data() {
     return {
