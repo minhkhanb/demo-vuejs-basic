@@ -29,8 +29,6 @@ const store = new Vuex.Store({
     },
     changeStatus(state, payload) {
       state.status = Boolean(payload);
-      // eslint-disable-next-line
-      console.log(state.status);
     },
   },
 
