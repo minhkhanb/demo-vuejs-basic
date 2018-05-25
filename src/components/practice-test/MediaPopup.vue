@@ -27,7 +27,7 @@
               </div>
               <div class="btn-toggle-item xs6 md6" @click="showMultiImages">
                 <div class="multi-img multi-img-item">
-                  <div>
+                  <div class="pd-top">
                     <div class="square"></div>
                     <div class="square"></div>
                   </div>
@@ -38,9 +38,17 @@
                 </div>
               </div>
             </div>
-            <div class="content">
-              <div v-for="(img, index) in images" :key="index" style="display: inline-block">
-                <img :src="img.url" :alt="img.alt" class="media-image"/>
+            <div v-if="statusMultiImage" class="media-container">
+              <div v-for="(items, index) in arrImagesTwoElement" :key="index"
+                 class="display-inline">
+                <div v-for="(img, index) in items" :key="index">
+                  <img :src="img" class="media-multi-image"/>
+                </div>
+              </div>
+            </div>
+            <div v-else class="media-container">
+              <div v-for="(img, index) in imgs" :key="index" class="display-inline">
+                <img :src="img" class="media-image"/>
               </div>
             </div>
           </div>
@@ -65,12 +73,30 @@ export default {
       changeStatus: 'changeStatus',
     }),
 
+    showImages() {
+      let i = 0;
+      let newImages = [];
+      for (i; i < this.imgs.length; i += 2) {
+        newImages = this.imgs.slice(i, i + 2);
+        this.arrImagesTwoElement = this.arrImagesTwoElement.concat([newImages]);
+      }
+
+      this.statusTwoImage = false;
+      this.statusMultiImage = true;
+    },
+
     showTwoImages() {
-      return false;
+      this.arrImagesTwoElement = [];
+      this.statusMultiImage = false;
+      this.statusTwoImage = true;
     },
 
     showMultiImages() {
-      return false;
+      if (this.imgs.length > 2) {
+        this.showImages();
+      } else {
+        this.showTwoImages();
+      }
     },
   },
   data() {
@@ -93,14 +119,21 @@ export default {
           alt: 'frog',
         },
       ],
+      imgs: [
+        'static/images/duck.png',
+        'static/images/cat.jpg',
+        'static/images/sheep.jpg',
+        'static/images/frog.jpg',
+        'static/images/duck.png',
+      ],
+      arrImagesTwoElement: [],
+      statusMultiImage: false,
+      statusTwoImage: false,
     };
   },
 };
 </script>
 <style scoped lang="stylus">
-  .media-content
-    background-color #e6ccff
-
   .header
     background-color #455A64
 
@@ -108,12 +141,26 @@ export default {
     color #ffffff
     padding 1rem
 
-  .content
-    min-height 450px
+  .media-container
+    -webkit-transition: none;
+    transition: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    max-width: 100%;
+    will-change: padding;
+    min-height 400px
     overflow-x scroll
 
   img.media-image
     height 350px
+
+  .media-multi-image
+    width 200px
+    height 150px
 
   .media-content {
     position fixed
@@ -129,7 +176,7 @@ export default {
 
   .media-wrap
     width 70%
-    height 85%
+    height 82%
     margin 6% auto
     background-color #ffffff
     border-radius 2px
@@ -151,13 +198,12 @@ export default {
 
       .two-img
         &.two-img-item
-          padding: 1rem 0.25rem 0.5rem 0.5rem;
+          padding: 1.3rem 1rem 0 0.1rem
 
       .multi-img
-        border-left 2px solid black
+        border-left 2px solid #BDBDBD
         &.multi-img-item
-            padding-left  0.25rem
-            padding-right 0.5rem
+          padding-left: 0.7rem
 
   .square
     display inline-block
@@ -173,4 +219,11 @@ export default {
 
   .text-align-left
     text-align left
+
+  .display-inline
+    display inline-block
+
+  .pd-top
+    padding-top 0.5rem
+
 </style>
