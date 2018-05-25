@@ -14,6 +14,7 @@ import Test from '@/components/shared/Test';
 import App from './App';
 import router from './router';
 import store from './store';
+import './assets/css';
 
 
 require('./directives/directives.js');
